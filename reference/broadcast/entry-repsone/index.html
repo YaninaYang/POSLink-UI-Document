@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Option # This page describes all implict intents that BroadPOS app can use to perform actions to select option.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Option # This page describes all implict intents that BroadPOS app can use to perform actions to select option.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reference/broadcast/entry-repsone/" /><meta property="article:section" content="reference" />
+
+
+<title>Entry Repsone | POSLink UI Design and User Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" >
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js" ></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" ></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>POSLink UI Design and User Guide</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/" class="">UI Flow</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/interface-initiation/" class="">Interface Initiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/request-broadcast/" class="">Request Broadcast</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/response-broadcast/" class="">Response Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/status-broadcast/" class="">Status Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/end-transaction/" class="">Ending Transaction</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Reference</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/" class="">Activity</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/" class="">Text</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/security/" class="">Security</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/" class="">Option</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/option/" class="">Option</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/deprecated/" class="">Deprecated</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/" class="">Confirmation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/poslink/" class="">Poslink</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/signature/" class="">Signature</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/" class="">Broadcast</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-repsone/" class="active">Entry Repsone</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-request/" class="">Entry Request</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/status/" class="">Status</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLink-UI"  target="_blank" rel="noopener">
+        POSLinkUI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLinkUI-Demo"  target="_blank" rel="noopener">
+        POSLinkUI Demo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<header>
+  <img src="/svg/logo.svg" alt="My Logo">
+</header>
+
+<div class="flex align-center justify-between">
+
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Entry Repsone</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#option">Option</a>
+      <ul>
+        <li><a href="#enter-amount">Enter Amount</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="option">
+  Option
+  <a class="anchor" href="#option">#</a>
+</h1>
+<p>This page describes all implict intents that BroadPOS app can use to perform actions to select option.</p>
+<h2 id="enter-amount">
+  Enter Amount
+  <a class="anchor" href="#enter-amount">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AMOUNT">TextEntry.ACTION_ENTER_AMOUNT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/CurrencyType.html#GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;1-12&rdquo;. It means min length is 1, max length is 12.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_AMOUNT">EntryRequest.PARAM_AMOUNT</a><br>
+Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AMOUNT">TextEntry.ACTION_ENTER_AMOUNT</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_AMOUNT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_ADDRESS);
+bundle.putLong(EntryRequest.PARAM_AMOUNT,value); //AMOUNT entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+<footer>
+  <p>Copyright &copy; 2023 PAX Technology, Inc. All rights reserved.</p>
+</footer>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#option">Option</a>
+      <ul>
+        <li><a href="#enter-amount">Enter Amount</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

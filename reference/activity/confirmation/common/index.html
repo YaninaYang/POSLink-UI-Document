@@ -1,0 +1,3466 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Common Confirmation Intents # This page describes all implict common intents that BroadPOS app can use to perform actions to confirm action.
+Start UI # BroadPOS might show status like CardStatus.CARD_REMOVAL_REQUIRED before start any Activity Action.
+In such case, it&rsquo;s hard to choose default ui or customized ui to show status. So we add this action.
+In insert any time case, if customized app implements this action, BroadPOS will call customized app to foreground.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Common Confirmation Intents # This page describes all implict common intents that BroadPOS app can use to perform actions to confirm action.
+Start UI # BroadPOS might show status like CardStatus.CARD_REMOVAL_REQUIRED before start any Activity Action.
+In such case, it&rsquo;s hard to choose default ui or customized ui to show status. So we add this action.
+In insert any time case, if customized app implements this action, BroadPOS will call customized app to foreground." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reference/activity/confirmation/common/" /><meta property="article:section" content="reference" />
+
+
+<title>Common | POSLink UI Design and User Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" >
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js" ></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" ></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>POSLink UI Design and User Guide</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/" class="">UI Flow</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/interface-initiation/" class="">Interface Initiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/request-broadcast/" class="">Request Broadcast</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/response-broadcast/" class="">Response Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/status-broadcast/" class="">Status Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/end-transaction/" class="">Ending Transaction</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Reference</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/" class="">Activity</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/" class="">Text</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/security/" class="">Security</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/" class="">Option</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/option/" class="">Option</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/deprecated/" class="">Deprecated</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/" class="">Confirmation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/common/" class="active">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/poslink/" class="">Poslink</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/signature/" class="">Signature</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/" class="">Broadcast</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-repsone/" class="">Entry Repsone</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-request/" class="">Entry Request</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/status/" class="">Status</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLink-UI"  target="_blank" rel="noopener">
+        POSLinkUI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLinkUI-Demo"  target="_blank" rel="noopener">
+        POSLinkUI Demo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<header>
+  <img src="/svg/logo.svg" alt="My Logo">
+</header>
+
+<div class="flex align-center justify-between">
+
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Common</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#common-confirmation-intents">Common Confirmation Intents</a>
+      <ul>
+        <li><a href="#start-ui">Start UI</a></li>
+        <li><a href="#is-card-present">Is Card Present?</a></li>
+        <li><a href="#confirm-card-process-error">Confirm Card Process Error</a></li>
+        <li><a href="#duplicated-transaction-continue">Duplicated Transaction. Continue?</a></li>
+        <li><a href="#confirm-surcharge-fee">Confirm Surcharge Fee</a></li>
+        <li><a href="#confirm-total-amount">Confirm Total Amount</a></li>
+        <li><a href="#confirm-balance">Confirm Balance</a></li>
+        <li><a href="#do-you-want-to-print-receipt">Do You Want To Print Receipt?</a></li>
+        <li><a href="#partially-approved-reverse">Partially Approved. Reverse?</a></li>
+        <li><a href="#partially-approved-another-payment">Partially Approved. Another Payment?</a></li>
+        <li><a href="#receipt-preview">Receipt Preview</a></li>
+        <li><a href="#please-tear-receipt-print-customer-receipt">Please Tear Receipt. Print Customer Receipt?</a></li>
+        <li><a href="#printer-has-error-retry">Printer has error. Retry?</a></li>
+        <li><a href="#display-qr-code-receipt">Display QR Code Receipt</a></li>
+        <li><a href="#host-declined-continue-with-another-card">Host Declined. Continue with Another Card?</a></li>
+        <li><a href="#apply-for-all-merchants-or-current">Apply for all merchants or current?</a></li>
+        <li><a href="#close-batch">Close Batch?</a></li>
+        <li><a href="#close-with-untipped">Close with Untipped?</a></li>
+        <li><a href="#upload-transaction-are-you-sure">Upload Transaction, Are You Sure?</a></li>
+        <li><a href="#upload-retry">Upload Retry?</a></li>
+        <li><a href="#print-failed-trans">Print Failed Trans.?</a></li>
+        <li><a href="#delete-sf-records-are-you-sure">Delete SF Records, Are You Sure?</a></li>
+        <li><a href="#online-failed-retry">Online Failed, Retry?</a></li>
+        <li><a href="#would-you-like-to-add-this-tip">Would you like to add this tip?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="common-confirmation-intents">
+  Common Confirmation Intents
+  <a class="anchor" href="#common-confirmation-intents">#</a>
+</h1>
+<p>This page describes all implict common intents that BroadPOS app can use to perform actions to confirm action.</p>
+<hr>
+<h2 id="start-ui">
+  Start UI
+  <a class="anchor" href="#start-ui">#</a>
+</h2>
+<p>BroadPOS might show status like 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/status/CardStatus.html#CARD_REMOVAL_REQUIRED">CardStatus.CARD_REMOVAL_REQUIRED</a> before start any Activity Action.<br>
+In such case, it&rsquo;s hard to choose default ui or customized ui to show status. So we add this action.<br>
+In insert any time case, if customized app implements this action, BroadPOS will call customized app to foreground.<br>
+Suggest prompt message &ldquo;Processing,Please wait&hellip;&rdquo;<br>
+After this activity/dialog onResume, send output to BroadPOS let it knows you are ready to show status.</p>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_START_UI">ConfirmationEntry.ACTION_START_UI</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_START_UI">ConfirmationEntry.ACTION_START_UI</a>
+Type: String<br>
+<em>Mandatory</em></li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.START_UI&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_START_UI);
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="is-card-present">
+  Is Card Present?
+  <a class="anchor" href="#is-card-present">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CHECK_CARD_PRESENT">ConfirmationEntry.ACTION_CHECK_CARD_PRESENT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CHECK_CARD_PRESENT">ConfirmationEntry.ACTION_CHECK_CARD_PRESENT</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_CARD_PRESENT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CHECK_CARD_PRESENT);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="confirm-card-process-error">
+  Confirm Card Process Error
+  <a class="anchor" href="#confirm-card-process-error">#</a>
+</h2>
+<p>This activity is used to prompt error message while processing EMV.</p>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_CARD_PROCESS_RESULT">ConfirmationEntry.ACTION_CONFIRM_CARD_PROCESS_RESULT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_MESSAGE">EntryExtraData.PARAM_MESSAGE</a><br>
+Prompt Message<br>
+Example: &ldquo;1-Chip Malfunction&rdquo;<br>
+Type : String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_CARD_PROCESS_RESULT">ConfirmationEntry.ACTION_CONFIRM_CARD_PROCESS_RESULT</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_CARD_PROCESS_RESULT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_CARD_PROCESS_RESULT);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, true); //confirmation is done
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="duplicated-transaction-continue">
+  Duplicated Transaction. Continue?
+  <a class="anchor" href="#duplicated-transaction-continue">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_DUPLICATE_TRANS">ConfirmationEntry.ACTION_CONFIRM_DUPLICATE_TRANS</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_DUPLICATE_TRANS">ConfirmationEntry.ACTION_CONFIRM_DUPLICATE_TRANS</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_DUPLICATE_TRANS&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_DUPLICATE_TRANS);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="confirm-surcharge-fee">
+  Confirm Surcharge Fee
+  <a class="anchor" href="#confirm-surcharge-fee">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_SURCHARGE_FEE">ConfirmationEntry.ACTION_CONFIRM_SURCHARGE_FEE</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TOTAL_AMOUNT">EntryExtraData.PARAM_TOTAL_AMOUNT </a><br>
+Total Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_SURCHARGE_FEE">EntryExtraData.PARAM_SURCHARGE_FEE </a><br>
+Surcharge Fee
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ENABLE_BYPASS">EntryExtraData.PARAM_ENABLE_BYPASS</a><br>
+Allow Bypass<br>
+Default value if FALSE
+Type: Boolean<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_SURCHARGE_FEE">ConfirmationEntry.ACTION_CONFIRM_SURCHARGE_FEE</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_SURCHARGE_FEE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_SURCHARGE_FEE);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="confirm-total-amount">
+  Confirm Total Amount
+  <a class="anchor" href="#confirm-total-amount">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_TOTAL_AMOUNT">ConfirmationEntry.ACTION_CONFIRM_TOTAL_AMOUNT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TOTAL_AMOUNT">EntryExtraData.PARAM_TOTAL_AMOUNT </a><br>
+Total Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ENABLE_BYPASS">EntryExtraData.PARAM_ENABLE_BYPASS</a><br>
+Allow Bypass<br>
+Default value if FALSE
+Type: Boolean<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_TOTAL_AMOUNT">ConfirmationEntry.ACTION_CONFIRM_TOTAL_AMOUNT</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_TOTAL_AMOUNT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_TOTAL_AMOUNT);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="confirm-balance">
+  Confirm Balance
+  <a class="anchor" href="#confirm-balance">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_BALANCE">ConfirmationEntry.ACTION_CONFIRM_BALANCE</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_BALANCE">EntryExtraData.PARAM_BALANCE </a><br>
+Total Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ENABLE_BYPASS">EntryExtraData.PARAM_ENABLE_BYPASS</a><br>
+Allow Bypass<br>
+Default value if FALSE
+Type: Boolean<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_BALANCE">ConfirmationEntry.ACTION_CONFIRM_BALANCE</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_BALANCE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_BALANCE);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="do-you-want-to-print-receipt">
+  Do You Want To Print Receipt?
+  <a class="anchor" href="#do-you-want-to-print-receipt">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINT_FPS">ConfirmationEntry.ACTION_CONFIRM_PRINT_FPS</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINT_FPS">ConfirmationEntry.ACTION_CONFIRM_PRINT_FPS</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_PRINT_FPS&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_PRINT_FPS);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="partially-approved-reverse">
+  Partially Approved. Reverse?
+  <a class="anchor" href="#partially-approved-reverse">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_REVERSE_PARTIAL_APPROVAL">ConfirmationEntry.ACTION_REVERSE_PARTIAL_APPROVAL</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_APPROVED_AMOUNT">EntryExtraData.PARAM_APPROVED_AMOUNT</a><br>
+Approved Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TOTAL_AMOUNT">EntryExtraData.PARAM_TOTAL_AMOUNT</a><br>
+Total Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option:<br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.REVERSE">PartialApprovalOption.REVERSE</a>: The transaction will be voided. <br>
+Negative option:<br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.ACCEPT">PartialApprovalOption.ACCEPT</a>: The transaction will be accepted as partial-approval.<br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.REVERSE">PartialApprovalOption.REVERSE</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.ACCEPT">PartialApprovalOption.ACCEPT</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_REVERSE_PARTIAL_APPROVAL">ConfirmationEntry.ACTION_REVERSE_PARTIAL_APPROVAL</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.REVERSE_PARTIAL_APPROVAL&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_REVERSE_PARTIAL_APPROVAL);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="partially-approved-another-payment">
+  Partially Approved. Another Payment?
+  <a class="anchor" href="#partially-approved-another-payment">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_SUPPLEMENT_PARTIAL_APPROVAL">ConfirmationEntry.ACTION_SUPPLEMENT_PARTIAL_APPROVAL</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_APPROVED_AMOUNT">EntryExtraData.PARAM_APPROVED_AMOUNT</a><br>
+Approved Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TOTAL_AMOUNT">EntryExtraData.PARAM_TOTAL_AMOUNT</a><br>
+Total Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option:<br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.ACCEPT">PartialApprovalOption.ACCEPT</a>: A new payment will be started.<br>
+Negative option:<br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.DECLINE">PartialApprovalOption.DECLINE</a>: The transaction will be accepted as partial-approval.<br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.ACCEPT">PartialApprovalOption.ACCEPT</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PartialApprovalOption.DECLINE">PartialApprovalOption.DECLINE</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_SUPPLEMENT_PARTIAL_APPROVAL">ConfirmationEntry.ACTION_SUPPLEMENT_PARTIAL_APPROVAL</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.SUPPLEMENT_PARTIAL_APPROVAL&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_SUPPLEMENT_PARTIAL_APPROVAL);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="receipt-preview">
+  Receipt Preview
+  <a class="anchor" href="#receipt-preview">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CONFIRM_RECEIPT_VIEW">ConfirmationEntry.CONFIRM_RECEIPT_VIEW</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 20000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_RECEIPT_URI">EntryExtraData.PARAM_RECEIPT_URI</a><br>
+Bitmap Uri
+Type : String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CONFIRM_RECEIPT_VIEW">ConfirmationEntry.CONFIRM_RECEIPT_VIEW</a>
+Type: String<br>
+<em>Mandatory</em></li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Convert uri to Bitmap</strong></p>
+<pre tabindex="0"><code>Uri imageUri = Uri.parse(receiptUri);
+try {
+    if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.Q) {
+        bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+    } else {
+        ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), imageUri);
+        ImageDecoder.OnHeaderDecodedListener listener = new ImageDecoder.OnHeaderDecodedListener() {
+            @Override
+            public void onHeaderDecoded(@NonNull ImageDecoder decoder, @NonNull ImageDecoder.ImageInfo info, @NonNull ImageDecoder.Source source) {
+                decoder.setAllocator(ImageDecoder.ALLOCATOR_SOFTWARE);
+                decoder.setMutableRequired(true);
+            }
+        };
+        bitmap = ImageDecoder.decodeBitmap(source);
+    }
+}catch(Exception e){
+    //Permission Grant Failed?
+}
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.CONFIRM_RECEIPT_VIEW);
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="please-tear-receipt-print-customer-receipt">
+  Please Tear Receipt. Print Customer Receipt?
+  <a class="anchor" href="#please-tear-receipt-print-customer-receipt">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINT_CUSTOMER_COPY">ConfirmationEntry.ACTION_CONFIRM_PRINT_CUSTOMER_COPY</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINT_CUSTOMER_COPY">ConfirmationEntry.ACTION_CONFIRM_PRINT_CUSTOMER_COPY</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_PRINT_CUSTOMER_COPY&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_PRINT_CUSTOMER_COPY);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="printer-has-error-retry">
+  Printer has error. Retry?
+  <a class="anchor" href="#printer-has-error-retry">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINTER_STATUS">ConfirmationEntry.ACTION_CONFIRM_PRINTER_STATUS</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PRINT_STATUS">EntryExtraData.PARAM_PRINT_STATUS</a><br>
+Printer Status<br>
+Possible values:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PrintStatusType.PRINTER_OUT_OF_PAPER">PrintStatusType.PRINTER_OUT_OF_PAPER</a>: Out of paper</li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PrintStatusType.PRINTER_HOT">PrintStatusType.PRINTER_HOT</a>: Printer Overheat</li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.PrintStatusType.PRINTER_VOLTAGE_TOO_LOW">PrintStatusType.PRINTER_VOLTAGE_TOO_LOW</a>: Printer voltage too low</li>
+</ul>
+<p>Type : String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINTER_STATUS">ConfirmationEntry.ACTION_CONFIRM_PRINTER_STATUS</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_PRINTER_STATUS&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_PRINTER_STATUS);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="display-qr-code-receipt">
+  Display QR Code Receipt
+  <a class="anchor" href="#display-qr-code-receipt">#</a>
+</h2>
+<p>This activity is used to display a QRCode of receipt so that customer could scan it and save to their phone.</p>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_DISPLAY_QR_CODE_RECEIPT">ConfirmationEntry.ACTION_DISPLAY_QR_CODE_RECEIPT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 20000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_QR_CODE_CONTENT">EntryExtraData.PARAM_QR_CODE_CONTENT </a><br>
+Content String<br>
+Type : String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_DISPLAY_QR_CODE_RECEIPT">ConfirmationEntry.ACTION_DISPLAY_QR_CODE_RECEIPT</a>
+Type: String<br>
+<em>Mandatory</em></li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.DISPLAY_QR_CODE_RECEIPT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_DISPLAY_QR_CODE_RECEIPT);
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><p><strong>Exmaple Convert QRCode Conent</strong></p>
+<pre tabindex="0"><code> private Bitmap createQRCode(public static final String content, int qrCodeSize, Bitmap logo){
+    Matrix m = new Matrix();
+    int imageWidth = 80;
+    int imageHeight = 80;
+    m.setScale((float) imageWidth/logo.getWidth(), (float)imageHeight/logo.getHeight());
+    logo = Bitmap.createBitmap(logo, 0, 0,
+            logo.getWidth(), logo.getHeight(), m, false);
+    MultiFormatWriter writer = new MultiFormatWriter();
+    Hashtable&lt;EncodeHintType, Object&gt; hst = new Hashtable&lt;&gt;();
+    hst.put(EncodeHintType.CHARACTER_SET, &#34;UTF-8&#34;);
+    BitMatrix matrix = null;
+    try {
+        matrix = writer.encode(content, BarcodeFormat.QR_CODE, qrCodeSize, qrCodeSize, hst);
+    } catch (Exception e) {
+        Logger.e(e);
+        return null;
+    }
+    int width = matrix.getWidth();
+    int height = matrix.getHeight();
+    int halfW = width / 2;
+    int halfH = height / 2;
+    int[] pixels = new int[width * height];
+
+    for (int y = 0; y &lt; height; y++) {
+        for (int x = 0; x &lt; width; x++) {
+            if (x &gt; halfW - imageWidth/2 &amp;&amp; x &lt; halfW + imageWidth/2
+                    &amp;&amp; y &gt; halfH - imageHeight/2 &amp;&amp; y &lt; halfH + imageHeight/2) {
+                pixels[y * width + x] = logo.getPixel(x - halfW
+                        + imageWidth/2, y - halfH + imageHeight/2);
+            } else {
+                if (matrix.get(x, y)) {
+                    pixels[y * width + x] = 0xff000000;
+                }
+            }
+
+        }
+    }
+    logo.recycle();
+    Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+    bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+    return bitmap;
+}
+</code></pre><hr>
+<h2 id="host-declined-continue-with-another-card">
+  Host Declined. Continue with Another Card?
+  <a class="anchor" href="#host-declined-continue-with-another-card">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_CARD_ENTRY_RETRY">ConfirmationEntry.ACTION_CONFIRM_CARD_ENTRY_RETRY</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_MESSAGE">EntryExtraData.PARAM_MESSAGE</a><br>
+Prompt Message<br>
+Type: String <br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option:<br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption.CONTINUE">CardEntryRetryOption.CONTINUE</a>: Continue with another card<br>
+Negative option:<br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption.DECLINE">CardEntryRetryOption.DECLINE</a>: Decline<br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption.CONTINUE">CardEntryRetryOption.CONTINUE</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CardEntryRetryOption.DECLINE">CardEntryRetryOption.DECLINE</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_CARD_ENTRY_RETRY">ConfirmationEntry.ACTION_CONFIRM_CARD_ENTRY_RETRY</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_CARD_ENTRY_RETRY&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_CARD_ENTRY_RETRY);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="apply-for-all-merchants-or-current">
+  Apply for all merchants or current?
+  <a class="anchor" href="#apply-for-all-merchants-or-current">#</a>
+</h2>
+<p>Used when multi-merchant feature is enabled.</p>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_MERCHANT_SCOPE">ConfirmationEntry.ACTION_CONFIRM_MERCHANT_SCOPE</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope.CURRENT">MerchantScope.CURRENT</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope.ALL">MerchantScope.ALL</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope.CURRENT">MerchantScope.CURRENT</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.MerchantScope.ALL">MerchantScope.ALL</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_MERCHANT_SCOPE">ConfirmationEntry.ACTION_CONFIRM_MERCHANT_SCOPE</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_MERCHANT_SCOPE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_MERCHANT_SCOPE);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="close-batch">
+  Close Batch?
+  <a class="anchor" href="#close-batch">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_BATCH_CLOSE">ConfirmationEntry.ACTION_CONFIRM_BATCH_CLOSE</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_BATCH_CLOSE">ConfirmationEntry.ACTION_CONFIRM_BATCH_CLOSE</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_BATCH_CLOSE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_BATCH_CLOSE);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="close-with-untipped">
+  Close with Untipped?
+  <a class="anchor" href="#close-with-untipped">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_UNTIPPED">ConfirmationEntry.ACTION_CONFIRM_UNTIPPED</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_UNTIPPED">ConfirmationEntry.ACTION_CONFIRM_UNTIPPED</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_UNTIPPED&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_UNTIPPED);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="upload-transaction-are-you-sure">
+  Upload Transaction, Are You Sure?
+  <a class="anchor" href="#upload-transaction-are-you-sure">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_UPLOAD_TRANS">ConfirmationEntry.ACTION_CONFIRM_UPLOAD_TRANS</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_UPLOAD_TRANS">ConfirmationEntry.ACTION_CONFIRM_UPLOAD_TRANS</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_UPLOAD_TRANS&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_UPLOAD_TRANS);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="upload-retry">
+  Upload Retry?
+  <a class="anchor" href="#upload-retry">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_UPLOAD_RETRY">ConfirmationEntry.ACTION_CONFIRM_UPLOAD_RETRY</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_UPLOAD_RETRY">ConfirmationEntry.ACTION_CONFIRM_UPLOAD_RETRY</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_UPLOAD_RETRY&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_UPLOAD_RETRY);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="print-failed-trans">
+  Print Failed Trans.?
+  <a class="anchor" href="#print-failed-trans">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINT_FAILED_TRANS">ConfirmationEntry.ACTION_CONFIRM_PRINT_FAILED_TRANS</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_PRINT_FAILED_TRANS">ConfirmationEntry.ACTION_CONFIRM_PRINT_FAILED_TRANS</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_PRINT_FAILED_TRANS&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_PRINT_FAILED_TRANS);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="delete-sf-records-are-you-sure">
+  Delete SF Records, Are You Sure?
+  <a class="anchor" href="#delete-sf-records-are-you-sure">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_DELETE_SF">ConfirmationEntry.ACTION_CONFIRM_DELETE_SF</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_DELETE_SF">ConfirmationEntry.ACTION_CONFIRM_DELETE_SF</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_DELETE_SF&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_DELETE_SF);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="online-failed-retry">
+  Online Failed, Retry?
+  <a class="anchor" href="#online-failed-retry">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_ONLINE_RETRY">ConfirmationEntry.ACTION_CONFIRM_ONLINE_RETRY</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_ONLINE_RETRY">ConfirmationEntry.ACTION_CONFIRM_ONLINE_RETRY</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_ONLINE_RETRY&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_ONLINE_RETRY);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="would-you-like-to-add-this-tip">
+  Would you like to add this tip?
+  <a class="anchor" href="#would-you-like-to-add-this-tip">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_ADJUST_TIP">ConfirmationEntry.ACTION_CONFIRM_ADJUST_TIP</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.CATEGORY">ConfirmationEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/com/pax/us/pay/ui/constant/entry/enumeration/TransMode.html#TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_OPTIONS">EntryExtraData.PARAM_OPTIONS </a><br>
+Options<br>
+Positive option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a><br>
+Negative option: 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a><br>
+Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CONFIRMED">EntryRequest.PARAM_CONFIRMED</a><br>
+Confirmation result<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.YES">ConfirmationType.YES</a>, return TRUE<br>
+If select 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.ConfirmationType.NO">ConfirmationType.NO</a>, return FALSE<br>
+Type: Booelan<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.ConfirmationEntry.ACTION_CONFIRM_ADJUST_TIP">ConfirmationEntry.ACTION_CONFIRM_ADJUST_TIP</a>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.CONFIRM_ADJUST_TIP&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.CONFIRMATION&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, ConfirmationEntry.ACTION_CONFIRM_ADJUST_TIP);
+bundle.putBoolean(EntryRequest.PARAM_CONFIRMED, confirmation); //confirmation result
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+<footer>
+  <p>Copyright &copy; 2023 PAX Technology, Inc. All rights reserved.</p>
+</footer>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#common-confirmation-intents">Common Confirmation Intents</a>
+      <ul>
+        <li><a href="#start-ui">Start UI</a></li>
+        <li><a href="#is-card-present">Is Card Present?</a></li>
+        <li><a href="#confirm-card-process-error">Confirm Card Process Error</a></li>
+        <li><a href="#duplicated-transaction-continue">Duplicated Transaction. Continue?</a></li>
+        <li><a href="#confirm-surcharge-fee">Confirm Surcharge Fee</a></li>
+        <li><a href="#confirm-total-amount">Confirm Total Amount</a></li>
+        <li><a href="#confirm-balance">Confirm Balance</a></li>
+        <li><a href="#do-you-want-to-print-receipt">Do You Want To Print Receipt?</a></li>
+        <li><a href="#partially-approved-reverse">Partially Approved. Reverse?</a></li>
+        <li><a href="#partially-approved-another-payment">Partially Approved. Another Payment?</a></li>
+        <li><a href="#receipt-preview">Receipt Preview</a></li>
+        <li><a href="#please-tear-receipt-print-customer-receipt">Please Tear Receipt. Print Customer Receipt?</a></li>
+        <li><a href="#printer-has-error-retry">Printer has error. Retry?</a></li>
+        <li><a href="#display-qr-code-receipt">Display QR Code Receipt</a></li>
+        <li><a href="#host-declined-continue-with-another-card">Host Declined. Continue with Another Card?</a></li>
+        <li><a href="#apply-for-all-merchants-or-current">Apply for all merchants or current?</a></li>
+        <li><a href="#close-batch">Close Batch?</a></li>
+        <li><a href="#close-with-untipped">Close with Untipped?</a></li>
+        <li><a href="#upload-transaction-are-you-sure">Upload Transaction, Are You Sure?</a></li>
+        <li><a href="#upload-retry">Upload Retry?</a></li>
+        <li><a href="#print-failed-trans">Print Failed Trans.?</a></li>
+        <li><a href="#delete-sf-records-are-you-sure">Delete SF Records, Are You Sure?</a></li>
+        <li><a href="#online-failed-retry">Online Failed, Retry?</a></li>
+        <li><a href="#would-you-like-to-add-this-tip">Would you like to add this tip?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>POSLink UI Design and User Guide</title>
+    <link>/reference/activity/option/</link>
+    <description>Recent content on POSLink UI Design and User Guide</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/reference/activity/option/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/reference/activity/option/option/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/option/</guid>
+      <description>Option # Select Debit Account Type # Action
+OptionEntry.ACTION_SELECT_ACCOUNT_TYPE
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/common/</guid>
+      <description>Common Option Intents # Select EMV AID # Action
+OptionEntry.ACTION_SELECT_AID
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/deprecated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/deprecated/</guid>
+      <description>Deprecated Option Intents # Select Cashback # Action
+OptionEntry.ACTION_SELECT_CASHBACK_AMOUNT
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/host-dependent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/host-dependent/</guid>
+      <description>Host Dependent Option Intents # Select Debit Account Type # Action
+OptionEntry.ACTION_SELECT_ACCOUNT_TYPE
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.</description>
+    </item>
+    
+  </channel>
+</rss>

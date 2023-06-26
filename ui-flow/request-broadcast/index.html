@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The goal of an interface is to submit the desired data to BroadPOS, so that BroadPOS can continue the transaction. An important note here is that all communication during the life of an interface between an UI App and the BroadPOS App after the BroadPOS App has started the UI App Activity is done via system-wide Broadcasts. Request Broadcasts are the only upstream transmission from the UI App. In all other times, the UI App is reactive.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Request Broadcast" />
+<meta property="og:description" content="The goal of an interface is to submit the desired data to BroadPOS, so that BroadPOS can continue the transaction. An important note here is that all communication during the life of an interface between an UI App and the BroadPOS App after the BroadPOS App has started the UI App Activity is done via system-wide Broadcasts. Request Broadcasts are the only upstream transmission from the UI App. In all other times, the UI App is reactive." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/ui-flow/request-broadcast/" /><meta property="article:section" content="ui-flow" />
+
+
+<title>Request Broadcast | POSLink UI Design and User Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" >
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js" ></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" ></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>POSLink UI Design and User Guide</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/" class="">UI Flow</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/interface-initiation/" class="">Interface Initiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/request-broadcast/" class="active">Request Broadcast</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/response-broadcast/" class="">Response Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/status-broadcast/" class="">Status Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/end-transaction/" class="">Ending Transaction</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Reference</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/" class="">Activity</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/" class="">Text</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/security/" class="">Security</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/" class="">Option</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/option/" class="">Option</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/deprecated/" class="">Deprecated</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/" class="">Confirmation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/poslink/" class="">Poslink</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/signature/" class="">Signature</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/" class="">Broadcast</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-repsone/" class="">Entry Repsone</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-request/" class="">Entry Request</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/status/" class="">Status</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLink-UI"  target="_blank" rel="noopener">
+        POSLinkUI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLinkUI-Demo"  target="_blank" rel="noopener">
+        POSLinkUI Demo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<header>
+  <img src="/svg/logo.svg" alt="My Logo">
+</header>
+
+<div class="flex align-center justify-between">
+
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Request Broadcast</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#entryrequestaction_next"><a href="">EntryRequest.ACTION_NEXT</a></a></li>
+    <li><a href="#entryrequestaction_abort"><a href="">EntryRequest.ACTION_ABORT</a></a></li>
+    <li><a href="#entryrequestaction_security_area"><a href="">EntryRequest.ACTION_SECURITY_AREA</a></a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>The goal of an interface is to submit the desired data to BroadPOS, so that BroadPOS can continue the transaction. An important note here is that all communication during the life of an interface between an UI App and the BroadPOS App after the BroadPOS App has started the UI App Activity is done via system-wide Broadcasts. Request Broadcasts are the only upstream transmission from the UI App. In all other times, the UI App is reactive.</p>
+<p>Assuming the UI App Activity is running in foreground, and the BroadPOS has gone background, they will communicate via Broadcasts. Communication during this time is straightforward. The UI App will send a Request Broadcast containing the output of the interface. And in return it will get a Response Broadcast as acknowledgement. All Request Broadcasts are expected to contain the identifier (Interface Initiation Action) of the interface they are sent from. It should be sent under the key: EntryRequest.PARAM_ACTION.</p>
+<p>There are three different Request Broadcasts:</p>
+<ul>
+<li>
+  <a href="/">EntryRequest.ACTION_NEXT</a>: To submit output of an interface</li>
+<li>
+  <a href="/">EntryRequest.ACTION_ABORT</a>: To abort a transaction from any interface</li>
+<li>
+  <a href="/">EntryRequest.ACTION_SECURITY_AREA</a>: Ask for secure widget in interfaces under Security category</li>
+</ul>
+<h1 id="entryrequestaction_next">
+  
+  <a href="/">EntryRequest.ACTION_NEXT</a>
+  <a class="anchor" href="#entryrequestaction_next">#</a>
+</h1>
+<p>The interfaces are there to collect information from end users and submit the data to BroadPOS. These data need to be sent bundled with the Request Broadcasts. Let’s call this bundle the Request Broadcast Output Extras. They vary across interfaces, so each interface has its own Interface Initiation Input Extras and Request Broadcast Output Extras.</p>
+<p>For example, in the “Enter Amount” interface, the output will be the base amount of the transaction, along with the action identifying the interface. They are listed here. So, the Request Broadcast in this interface will contain these two as intent extras. Sample code is written below.</p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_AMOUNT);
+//bundling the interface identifier to let BroadPOS know which interface it is from.
+bundle.putLong(EntryRequest.PARAM_AMOUNT, value); 
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //received in EntryExtraData.PARAM_PACKAGE
+context.sendBroadcast(intent);
+</code></pre><h1 id="entryrequestaction_abort">
+  
+  <a href="/">EntryRequest.ACTION_ABORT</a>
+  <a class="anchor" href="#entryrequestaction_abort">#</a>
+</h1>
+<p>An UI App can abort a transaction from any interface. As the BroadPOS App does not encode any specific interaction (back button/gesture, close button, etc.) as abortion and lets the UI App come up with its own implementation, termination request is received in the form of a broadcast.</p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_AMOUNT);
+
+Intent intent = new Intent(EntryRequest.ACTION_ABORT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //received in EntryExtraData.PARAM_PACKAGE
+context.sendBroadcast(intent);
+</code></pre><h1 id="entryrequestaction_security_area">
+  
+  <a href="/">EntryRequest.ACTION_SECURITY_AREA</a>
+  <a class="anchor" href="#entryrequestaction_security_area">#</a>
+</h1>
+<p>When dealing with secure information such as Credit Card Number, Pin, and so on, a different approach has been taken to submit the information. This is the difference between Interface 1 and Interface 2 shown in this figure. In such a case, unlike the description above, the UI App does not send the information bundled as Output Extras. The UI App does not handle that information at all. Instead, it requests BroadPOS to load a secure widget first. The end user enters the secure information on the popped-up widget. And when the user submits, the UI App sends the Request Broadcast (EntryRequest.ACTION_NEXT) as usual. But in such a case, it contains only the EntryRequest.PARAM_ACTION in the bundle, not the actual user data such as Account Number or PIN. BroadPOS loads that information from its own secure widget internally. This flow can be seen below.</p>
+<p>The Interfaces are categorized to be differentiated. The interfaces that are supposed to submit secure information and thus need to be dealt like this are under the Security category. Interfaces of other categories submit the output if there is any. They can be found in the Reference section.</p>
+<blockquote class="book-hint info">
+  <p><strong>Recommendations</strong></p>
+<ul>
+<li>Only after initiating the Activity does the BroadPOS App send or expect broadcasts. Due to this nature, we recommend context-registered receivers as opposed to manifest-declared receivers.</li>
+<li>To prevent unnecessary sharing of information with unintended applications, we recommend restricting the request broadcasts using the setPackage(String packageName) method before sending a broadcast intended for the BroadPOS App. To accommodate this, all the UI Entry Actions come bundled with a package name with the key EntryExtraData.PARAM_PACKAGE (senderPackage).</li>
+</ul>
+
+</blockquote>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+<footer>
+  <p>Copyright &copy; 2023 PAX Technology, Inc. All rights reserved.</p>
+</footer>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#entryrequestaction_next"><a href="">EntryRequest.ACTION_NEXT</a></a></li>
+    <li><a href="#entryrequestaction_abort"><a href="">EntryRequest.ACTION_ABORT</a></a></li>
+    <li><a href="#entryrequestaction_security_area"><a href="">EntryRequest.ACTION_SECURITY_AREA</a></a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

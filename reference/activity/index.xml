@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>POSLink UI Design and User Guide</title>
+    <link>/reference/activity/</link>
+    <description>Recent content on POSLink UI Design and User Guide</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/reference/activity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/reference/activity/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/security/</guid>
+      <description>Security # This page describes all implict intents that BroadPOS app can use to perform actions to select option.
+Enter Card Number # Action
+SecurityEntry.ACTION_INPUT_ACCOUNT
+Category
+SecurityEntry.CATEGORY
+Enter Card Number (For POSLink Manage/InputAccount) # Action
+SecurityEntry.ACTION_MANAGE_INPUT_ACCOUNT
+Category
+SecurityEntry.CATEGORY
+Enter CVV # Action
+SecurityEntry.ACTION_ENTER_VCODE
+Category
+SecurityEntry.CATEGORY
+Enter Last 4 Digits # Action
+SecurityEntry.ACTION_ENTER_CARD_LAST_4_DIGITS
+Category
+SecurityEntry.CATEGORY
+Enter All Digits # Action
+SecurityEntry.ACTION_ENTER_CARD_ALL_DIGITS
+Category
+SecurityEntry.CATEGORY
+Enter Password # Action
+SecurityEntry.ACTION_ENTER_ADMINISTRATION_PASSWORD
+Category
+SecurityEntry.CATEGORY</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/poslink/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/poslink/</guid>
+      <description>POSLink Manage UI Intents # This page describes all implict intents that BroadPOS app can use to perform Manage UI request from POSLink.
+# Action
+OptionEntry.$1
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/signature/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/signature/</guid>
+      <description>Signature # This page describes all implict intents that BroadPOS app can use to perform actions to do signature.
+Get Signature # Action
+SignatureEntry.ACTION_SIGNATURE
+Category
+SignatureEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+  </channel>
+</rss>

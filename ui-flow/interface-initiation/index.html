@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Invoking the UI App will always be done by a BroadPOS App. BroadPOS will not accept any input from the UI App before this initiation. So, the UI App will not need to be running to be activated.
+Initiation is always done by Activity Intents. And every interface needed to continue the flow of a transaction has a unique identifier (Intent Action).
+BroadPOS does not expect the UI App to implement all the interfaces it may need to complete a transaction.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Interface Initiation" />
+<meta property="og:description" content="Invoking the UI App will always be done by a BroadPOS App. BroadPOS will not accept any input from the UI App before this initiation. So, the UI App will not need to be running to be activated.
+Initiation is always done by Activity Intents. And every interface needed to continue the flow of a transaction has a unique identifier (Intent Action).
+BroadPOS does not expect the UI App to implement all the interfaces it may need to complete a transaction." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/ui-flow/interface-initiation/" /><meta property="article:section" content="ui-flow" />
+
+
+<title>Interface Initiation | POSLink UI Design and User Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" >
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js" ></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" ></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>POSLink UI Design and User Guide</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/" class="">UI Flow</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/interface-initiation/" class="active">Interface Initiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/request-broadcast/" class="">Request Broadcast</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/response-broadcast/" class="">Response Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/status-broadcast/" class="">Status Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/end-transaction/" class="">Ending Transaction</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Reference</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/" class="">Activity</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/" class="">Text</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/security/" class="">Security</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/" class="">Option</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/option/" class="">Option</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/deprecated/" class="">Deprecated</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/" class="">Confirmation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/poslink/" class="">Poslink</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/signature/" class="">Signature</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/" class="">Broadcast</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-repsone/" class="">Entry Repsone</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-request/" class="">Entry Request</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/status/" class="">Status</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLink-UI"  target="_blank" rel="noopener">
+        POSLinkUI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLinkUI-Demo"  target="_blank" rel="noopener">
+        POSLinkUI Demo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<header>
+  <img src="/svg/logo.svg" alt="My Logo">
+</header>
+
+<div class="flex align-center justify-between">
+
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Interface Initiation</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><ul>
+<li>
+<p>Invoking the UI App will always be done by a BroadPOS App. BroadPOS will not accept any input from the UI App before this initiation. So, the UI App will not need to be running to be activated.</p>
+</li>
+<li>
+<p>Initiation is always done by Activity Intents. And every interface needed to continue the flow of a transaction has a unique identifier (Intent Action).</p>
+</li>
+<li>
+<p>BroadPOS does not expect the UI App to implement all the interfaces it may need to complete a transaction. If the UI App does not implement an interface, BroadPOS will bring to foreground its default interface. This modularity of breaking down a transaction into individual interfaces relieves the UI App of the responsibility to create every single interface a BroadPOS App needs to show.</p>
+</li>
+<li>
+<p>If the UI App intends to implement an interface, it needs to put the unique identifier (Intent Action) in the intent-filter of an activity in the Manifest. For example, the “Enter Amount” interface is used to collect the base amount to be paid in a transaction. The unique action that identifies this interface is &ldquo;com.pax.us.pay.action.ENTER_AMOUNT&rdquo;. The BroadPOS App will call startActivity() with an intent that has been instantiated with the action . One thing to keep in mind, as of Android 12, android:exported must be set, to make the activity available to other apps such as BroadPOS.</p>
+</li>
+</ul>
+<pre tabindex="0"><code>&lt;activity android:name = &#34;SampleUIAppActivity&#34; android:exported = &#34;true&#34;&gt;
+    &lt;intent-filter&gt;
+    	&lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+   	&lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+
+    	&lt;action android:name=&#34;com.pax.us.pay.action.ENTER_AMOUNT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><ul>
+<li>We are calling such actions, Interface Initiation Intent Action. And the corresponding intet comes bundled with information the UI App needs to use as inputs. These are the Interface Initiation Input Extras. They are action specific. However, some input extras are sent with all intents. It frees the UI App from storing states or any knowledge of the ongoing POS transaction the interface is a part of. For example, the package name of the BroadPOS Application the UI App will need to submit back to, or the type of the ongoing POS transaction (Debit Sale, Credit Return, etc.). All the input extras are listed along with the list of actions here.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+<footer>
+  <p>Copyright &copy; 2023 PAX Technology, Inc. All rights reserved.</p>
+</footer>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

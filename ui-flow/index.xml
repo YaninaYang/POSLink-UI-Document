@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UI Flow on POSLink UI Design and User Guide</title>
+    <link>/ui-flow/</link>
+    <description>Recent content in UI Flow on POSLink UI Design and User Guide</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/ui-flow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interface Initiation</title>
+      <link>/ui-flow/interface-initiation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/interface-initiation/</guid>
+      <description>Invoking the UI App will always be done by a BroadPOS App. BroadPOS will not accept any input from the UI App before this initiation. So, the UI App will not need to be running to be activated.
+Initiation is always done by Activity Intents. And every interface needed to continue the flow of a transaction has a unique identifier (Intent Action).
+BroadPOS does not expect the UI App to implement all the interfaces it may need to complete a transaction.</description>
+    </item>
+    
+    <item>
+      <title>Request Broadcast</title>
+      <link>/ui-flow/request-broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/request-broadcast/</guid>
+      <description>The goal of an interface is to submit the desired data to BroadPOS, so that BroadPOS can continue the transaction. An important note here is that all communication during the life of an interface between an UI App and the BroadPOS App after the BroadPOS App has started the UI App Activity is done via system-wide Broadcasts. Request Broadcasts are the only upstream transmission from the UI App. In all other times, the UI App is reactive.</description>
+    </item>
+    
+    <item>
+      <title>Response Broadcasts</title>
+      <link>/ui-flow/response-broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/response-broadcast/</guid>
+      <description>The BroadPOS App responds to the Request Broadcasts used to submit output of an interface, identified by the action EntryRequest.ACTION_NEXT. As we know, there are two more Request Broadcasts: suffixed with ABORT, and SECURITY_AREA. These do not generate any responses. In response to EntryRequest.ACTION_NEXT, there can be two types of Response Broadcasts:
+EntryResponse.ACTION_ACCEPTED # This broadcast does not contain any extra data bundled with it. This is the conclusion of an interface identified by a unique Interface Initiation Action name.</description>
+    </item>
+    
+    <item>
+      <title>Status Broadcasts</title>
+      <link>/ui-flow/status-broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/status-broadcast/</guid>
+      <description>We have previously discussed that the UI App gets the information necessary to create the interface, bundled with the intent it was invoked with. They are called the Interface Initiation Input Extras. However, for some interfaces, it may be necessary to get more information during the runtime of an interface. The UI App can take advantage of these information by visualizing interactive updates.
+Broadcast Receivers can be registered dynamically based on the current interface to receive the Status Broadcasts.</description>
+    </item>
+    
+    <item>
+      <title>Ending Transaction</title>
+      <link>/ui-flow/end-transaction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/end-transaction/</guid>
+      <description>BroadPOS sends a broadcast with action InformationStatus.TRANS_COMPLETED to notify the end of a transaction. This special Status Broadcast is the Disconnect Message. The UI App is expected to close itself after letting the user see the update for a reasonable duration. This duration can optionally come bundled with the broadcast too, in which case, the UI App is expected to follow that duration. No Request Broadcasts will be received by the BroadPOS App after this broadcast has been sent.</description>
+    </item>
+    
+  </channel>
+</rss>

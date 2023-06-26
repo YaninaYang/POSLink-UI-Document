@@ -1,0 +1,2821 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Common Text Intents # This page describes all common implict intents that BroadPOS app can use to perform actions to enter text.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Common Text Intents # This page describes all common implict intents that BroadPOS app can use to perform actions to enter text.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reference/activity/text/common/" /><meta property="article:section" content="reference" />
+
+
+<title>Common | POSLink UI Design and User Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" >
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js" ></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" ></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>POSLink UI Design and User Guide</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/" class="">UI Flow</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/interface-initiation/" class="">Interface Initiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/request-broadcast/" class="">Request Broadcast</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/response-broadcast/" class="">Response Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/status-broadcast/" class="">Status Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/end-transaction/" class="">Ending Transaction</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Reference</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/" class="">Activity</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/" class="">Text</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/common/" class="active">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/security/" class="">Security</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/" class="">Option</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/option/" class="">Option</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/deprecated/" class="">Deprecated</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/" class="">Confirmation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/poslink/" class="">Poslink</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/signature/" class="">Signature</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/" class="">Broadcast</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-repsone/" class="">Entry Repsone</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-request/" class="">Entry Request</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/status/" class="">Status</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLink-UI"  target="_blank" rel="noopener">
+        POSLinkUI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLinkUI-Demo"  target="_blank" rel="noopener">
+        POSLinkUI Demo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<header>
+  <img src="/svg/logo.svg" alt="My Logo">
+</header>
+
+<div class="flex align-center justify-between">
+
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Common</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#common-text-intents">Common Text Intents</a>
+      <ul>
+        <li><a href="#enter-amount">Enter Amount</a></li>
+        <li><a href="#enter-tip">Enter Tip</a></li>
+        <li><a href="#enter-total-amount">Enter Total Amount</a></li>
+        <li><a href="#enter-cashback">Enter Cashback</a></li>
+        <li><a href="#enter-tax-amount">Enter Tax Amount</a></li>
+        <li><a href="#enter-trans-no">Enter Trans. No.</a></li>
+        <li><a href="#enter-expiry-date">Enter Expiry Date</a></li>
+        <li><a href="#enter-address">Enter Address</a></li>
+        <li><a href="#enter-zip-code">Enter Zip Code</a></li>
+        <li><a href="#enter-address-and-zip-code">Enter Address and Zip code</a></li>
+        <li><a href="#enter-auth-code">Enter Auth Code</a></li>
+        <li><a href="#enter-voucher-number">Enter Voucher Number</a></li>
+        <li><a href="#enter-invoice-number">Enter Invoice Number</a></li>
+        <li><a href="#enter-clerk-id">Enter Clerk ID</a></li>
+        <li><a href="#enter-server-id-for-restaurant-only">Enter Server ID (For Restaurant only)</a></li>
+        <li><a href="#enter-table-number-for-restaurant-only">Enter Table Number (For Restaurant Only)</a></li>
+        <li><a href="#enter-guest-number-for-restaurant-only">Enter Guest Number (For Restaurant Only)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="common-text-intents">
+  Common Text Intents
+  <a class="anchor" href="#common-text-intents">#</a>
+</h1>
+<p>This page describes all common implict intents that BroadPOS app can use to perform actions to enter text.</p>
+<hr>
+<h2 id="enter-amount">
+  Enter Amount
+  <a class="anchor" href="#enter-amount">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AMOUNT">TextEntry.ACTION_ENTER_AMOUNT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;1-12&rdquo;. It means min length is 1, max length is 12.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_AMOUNT">EntryRequest.PARAM_AMOUNT</a><br>
+Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AMOUNT">TextEntry.ACTION_ENTER_AMOUNT</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_AMOUNT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_AMOUNT);
+bundle.putLong(EntryRequest.PARAM_AMOUNT,value); //AMOUNT entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app which started activity
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-tip">
+  Enter Tip
+  <a class="anchor" href="#enter-tip">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TIP">TextEntry.ACTION_ENTER_TIP</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_BASE_AMOUNT">EntryExtraData.PARAM_BASE_AMOUNT</a><br>
+Base Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_NAME">EntryExtraData.PARAM_TIP_NAME</a><br>
+Tip Name<br>
+In BroadPOS standalone mode, if multiple tips are enabled, value might be &ldquo;Tip&rdquo;, &ldquo;Tip2&rdquo;, &ldquo;Tip3&rdquo; or any value configured by merchant.<br>
+Default value is &ldquo;Tip&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_UNIT">EntryExtraData.PARAM_TIP_UNIT</a><br>
+Tip Unit<br>
+Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.UnitType.CENT">UnitType.CENT</a><br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.UnitType.CENT">UnitType.CENT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.UnitType.DOLLAR">UnitType.DOLLAR</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-12&rdquo;. It means min length is 0, max length is 12.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_OPTIONS">EntryExtraData.PARAM_TIP_OPTIONS</a><br>
+Tip Options<br>
+Used when tip select is enabled.<br>
+Example:<br>
+if value of EntryExtraData.PARAM_TIP_OPTIONS is <strong>{&ldquo;300&rdquo;,&ldquo;500&rdquo;,&ldquo;700&rdquo;}</strong>,<br>
+you could provide 3 options for user:</p>
+<table>
+<thead>
+<tr>
+<th>Select Tip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$3.00</td>
+</tr>
+<tr>
+<td>$5.00</td>
+</tr>
+<tr>
+<td>$7.00</td>
+</tr>
+</tbody>
+</table>
+<p>Type: String[]<br>
+<em>Optional</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_RATE_OPTIONS">EntryExtraData.PARAM_TIP_RATE_OPTIONS</a><br>
+Tip Rate Options<br>
+Used when tip select is enabled.<br>
+Used with 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_OPTIONS">EntryExtraData.PARAM_TIP_OPTIONS</a> together.<br>
+Example:<br>
+if value of 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_OPTIONS">EntryExtraData.PARAM_TIP_OPTIONS</a> is <strong>{&ldquo;1000&rdquo;,&ldquo;1500&rdquo;,&ldquo;1800&rdquo;}</strong> and<br>
+value of 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_RATE_OPTIONS">EntryExtraData.PARAM_TIP_RATE_OPTIONS</a> is <strong>{&ldquo;10&rdquo;,&ldquo;15&rdquo;,&ldquo;18&rdquo;}</strong>,<br>
+you could provide 3 options for user:</p>
+<table>
+<thead>
+<tr>
+<th>Select Tip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$10.00(10%)</td>
+</tr>
+<tr>
+<td>$15.00(15%)</td>
+</tr>
+<tr>
+<td>$18.00(18%)</td>
+</tr>
+</tbody>
+</table>
+<p>Type: String[]<br>
+<em>Optional</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_NAMES">EntryExtraData.PARAM_TIP_NAMES</a><br>
+Name of Enabled Tips<br>
+Used when multiple tips are enabled.<br>
+Type: String[]<br>
+<em>Optional</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_AMOUNTS">EntryExtraData.PARAM_TIP_AMOUNTS</a><br>
+Value of Enabled Tips<br>
+Used when multiple tips are enabled.<br>
+Used with 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_OPTIONS">EntryExtraData.PARAM_TIP_OPTIONS</a> together.<br>
+Example:<br>
+If TIP1, TIP2, TIP3 are all enabled. Base amount is 10000.<br>
+If name of enabled tips is: <strong>{&ldquo;TIP&rdquo;, &ldquo;TIP2&rdquo;, &ldquo;TIP3}</strong><br>
+value of enabled tips is: <strong>{&rdquo;&quot;, &ldquo;200&rdquo;,&quot;&quot;}</strong><br>
+That means:  The customer has bypass TIP, entered $2.00 TIP2. TIP3 not valued yet.</p>
+<table>
+<thead>
+<tr>
+<th>Amount</th>
+<th>$10.00</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TIP</td>
+<td><font color="grey"> $0.00 </font></td>
+</tr>
+<tr>
+<td>TIP2</td>
+<td><font color="black"> $2.00 </font></td>
+</tr>
+<tr>
+<td>TIP3</td>
+<td><font color="grey"> $0.00 </font></td>
+</tr>
+</tbody>
+</table>
+<p>Else, if value of enabled tips is: <strong>{&ldquo;0&rdquo;, &ldquo;200&rdquo;,&quot;&quot;}</strong><br>
+That means:  The customer has enterer $0.00 TIP, entered $2.00 TIP2. TIP3 not valued yet.</p>
+<table>
+<thead>
+<tr>
+<th>Amount</th>
+<th>$10.00</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TIP</td>
+<td><font color="black"> $0.00 </font></td>
+</tr>
+<tr>
+<td>TIP2</td>
+<td><font color="black"> $2.00 </font></td>
+</tr>
+<tr>
+<td>TIP3</td>
+<td><font color="grey"> $0.00 </font></td>
+</tr>
+</tbody>
+</table>
+<p>Type: String[]<br>
+<em>Optional</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION">EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION</a><br>
+TRUE means NO TIP SELECTION is enabled.<br>
+Type: Boolean<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_TIP">EntryRequest.PARAM_TIP</a><br>
+Tip<br>
+If return nothing, BroadPOS will treat it as tip bypassed.<br>
+If return 0, BroadPOS will treat it as &ldquo;NO TIP&rdquo;<br>
+Type: Long<br>
+<em>Optional</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TIP">TextEntry.ACTION_ENTER_TIP</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_TIP&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_TIP);
+bundle.putLong(EntryRequest.PARAM_TIP,value); //TIP entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><p><strong>Example Send Output to BroadPOS (Bypass TIP)</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_TIP);
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-total-amount">
+  Enter Total Amount
+  <a class="anchor" href="#enter-total-amount">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TOTAL_AMOUNT">TextEntry.ACTION_ENTER_TOTAL_AMOUNT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+else, if currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a>, the amount on page is shown as &ldquo;POINT 100&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.POINT">CurrencyType.POINT</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_BASE_AMOUNT">EntryExtraData.PARAM_BASE_AMOUNT</a><br>
+Base Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIP_NAME">EntryExtraData.PARAM_TIP_NAME</a><br>
+Tip Name<br>
+In BroadPOS standalone mode, if multiple tips are enabled, value might be &ldquo;Tip&rdquo;, &ldquo;Tip2&rdquo;, &ldquo;Tip3&rdquo; or any value configured by merchant.<br>
+Default value is &ldquo;Tip&rdquo;.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-12&rdquo;. It means min length is 0, max length is 12.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION">EntryExtraData.PARAM_ENABLE_NO_TIP_SELECTION</a><br>
+TRUE means NO TIP SELECTION is enabled.<br>
+Default value is FALSE.<br>
+Type: Boolean<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_TOTAL_AMOUNT">EntryRequest.PARAM_TOTAL_AMOUNT</a><br>
+Total Amount <br>
+If select NO TIP, then return base amount.<br>
+Type: Long<br>
+<em>Optional</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TOTAL_AMOUNT">TextEntry.ACTION_ENTER_TOTAL_AMOUNT</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_TOTAL_AMOUNT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_TOTAL_AMOUNT);
+bundle.putLong(EntryRequest.PARAM_TOTAL_AMOUNT,value); //Total Amount entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-cashback">
+  Enter Cashback
+  <a class="anchor" href="#enter-cashback">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_CASH_BACK">TextEntry.ACTION_ENTER_CASH_BACK</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-12&rdquo;. It means min length is 0, max length is 12.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CASHBACK_OPTIONS">ntryExtraData.PARAM_CASHBACK_OPTIONS</a><br>
+Cashback options for selection.<br>
+Example:<br>
+if opttion is{&ldquo;1000&rdquo;,&ldquo;2000&rdquo;,&ldquo;3000&rdquo;,&ldquo;5000&rdquo;}, you can provide options to user:</p>
+<table>
+<thead>
+<tr>
+<th>Select Cashback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$10.00</td>
+</tr>
+<tr>
+<td>$20.00</td>
+</tr>
+<tr>
+<td>$30.00</td>
+</tr>
+<tr>
+<td>$40.00</td>
+</tr>
+</tbody>
+</table>
+<p>Type: String[]<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CASHBACK_AMOUNT">EntryRequest.PARAM_CASHBACK_AMOUNT</a><br>
+Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_CASH_BACK">TextEntry.ACTION_ENTER_CASH_BACK</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_CASH_BACK&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_CASH_BACK);
+bundle.putLong(EntryRequest.PARAM_CASHBACK_AMOUNT -,value); //Cashback entered/selected
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-tax-amount">
+  Enter Tax Amount
+  <a class="anchor" href="#enter-tax-amount">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TAX_AMOUNT">TextEntry.ACTION_ENTER_TAX_AMOUNT</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_CURRENCY">EntryExtraData.PARAM_CURRENCY</a><br>
+Currency type. Default value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a><br>
+It is used to display a amount value.<br>
+Example:<br>
+The value of amount is 100, and currency type is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a>, the amount on page is shown as &ldquo;$1.00&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.USD">CurrencyType.USD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.CAD">CurrencyType.CAD</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.EUR">CurrencyType.EUR</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.CurrencyType.GBP">CurrencyType.GBP</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-12&rdquo;. It means min length is 0, max length is 12.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_TAX_AMOUNT">EntryRequest.PARAM_TAX_AMOUNT</a><br>
+Amount<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TAX_AMOUNT">TextEntry.ACTION_ENTER_TAX_AMOUNT</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_TAX_AMOUNT&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_TAX_AMOUNT);
+bundle.putLong(EntryRequest.PARAM_TAX_AMOUNT,value); //Tax entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-trans-no">
+  Enter Trans. No.
+  <a class="anchor" href="#enter-trans-no">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TRANS_NUMBER">TextEntry.ACTION_ENTER_TRANS_NUMBER</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;1-4&rdquo;. It means min length is 1, max length is 4.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_TRANS_NUMBER">EntryRequest.PARAM_TRANS_NUMBER</a><br>
+Transaction No.<br>
+Type: Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TRANS_NUMBER">TextEntry.ACTION_ENTER_TRANS_NUMBER</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_TRANS_NUMBER&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_TRANS_NUMBER);
+bundle.putLong(EntryRequest.PARAM_TRANS_NUMBER,value); //Trans. No. entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-expiry-date">
+  Enter Expiry Date
+  <a class="anchor" href="#enter-expiry-date">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_EXPIRY_DATE">TextEntry.ACTION_ENTER_EXPIRY_DATE</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_EXPIRY_DATE">EntryRequest.PARAM_EXPIRY_DATE</a><br>
+Expiry Date<br>
+Format: <strong>MMYY</strong><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_EXPIRY_DATE">TextEntry.ACTION_ENTER_EXPIRY_DATE</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_EXPIRY_DATE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_EXPIRY_DATE);
+bundle.putString(EntryRequest.PARAM_EXPIRY_DATE,value); //Expiry Date entered, MMYY
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-address">
+  Enter Address
+  <a class="anchor" href="#enter-address">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_ADDRESS">TextEntry.ACTION_ENTER_ADDRESS</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-30&rdquo;. It means min length is 0, max length is 30.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ADDRESS">EntryRequest.PARAM_ADDRESS</a><br>
+Address<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_ADDRESS">TextEntry.ACTION_ENTER_ADDRESS</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_ADDRESS&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_ADDRESS);
+bundle.putString(EntryRequest.PARAM_ADDRESS,value); //Address entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-zip-code">
+  Enter Zip Code
+  <a class="anchor" href="#enter-zip-code">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_ZIPCODE">TextEntry.ACTION_ENTER_ZIPCODE</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-9&rdquo;. It means min length is 0, max length is 9.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_EINPUT_TYPE">EntryExtraData.PARAM_EINPUT_TYPE</a><br>
+Input Type<br>
+Default value is empty string.<br>
+If the value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.InputType.">InputType.ALLTEXT</a>, it means accept alpha-numeric string.<br>
+Type: String<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ZIP_CODE">EntryRequest.PARAM_ZIP_CODE</a><br>
+Zip Code<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_ZIPCODE">TextEntry.ACTION_ENTER_ZIPCODE</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_ZIP_CODE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_ZIPCODE);
+bundle.putString(EntryRequest.PARAM_ZIP_CODE,value); //Zip code entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-address-and-zip-code">
+  Enter Address and Zip code
+  <a class="anchor" href="#enter-address-and-zip-code">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AVS_DATA">TextEntry.ACTION_ENTER_AVS_DATA</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ADDRESS_PATTERN">EntryExtraData.PARAM_ADDRESS_PATTERN </a><br>
+Length limit for zip code.<br>
+Default value is &ldquo;0-30&rdquo;. It means min length is 0, max length is 30.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_ZIP_CODE_PATTERN">EntryExtraData.PARAM_ZIP_CODE_PATTERN</a><br>
+Length limit for zip code.<br>
+Default value is &ldquo;0-9&rdquo;. It means min length is 0, max length is 9.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_EINPUT_TYPE">EntryExtraData.PARAM_EINPUT_TYPE</a><br>
+Input Type<br>
+Default value is empty string.<br>
+If the value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.InputType.">InputType.ALLTEXT</a>, it means accept alpha-numeric zip code.<br>
+Else, accept numeric zip code.<br>
+Type: String<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ZIP_CODE">EntryRequest.PARAM_ZIP_CODE</a><br>
+Zip Code<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ADDRESS">EntryRequest.PARAM_ADDRESS</a><br>
+Zip Code<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AVS_DATA">TextEntry.ACTION_ENTER_AVS_DATA</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_ZIP_CODE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_AVS_DATA);
+bundle.putString(EntryRequest.PARAM_ADDRESS, address); //Address entered
+bundle.putString(EntryRequest.PARAM_ZIP_CODE, zipcode); //Zip code entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-auth-code">
+  Enter Auth Code
+  <a class="anchor" href="#enter-auth-code">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AUTH">TextEntry.ACTION_ENTER_AUTH</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;1-15&rdquo;. It means min length is 1, max length is 15.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_AUTH_CODE">EntryRequest.PARAM_AUTH_CODE</a><br>
+Amount<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_AUTH">TextEntry.ACTION_ENTER_AUTH</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.PARAM_AUTH_CODE&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_AUTH);
+bundle.putString(EntryRequest.PARAM_AUTH_CODE,value); //Auth Code entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-voucher-number">
+  Enter Voucher Number
+  <a class="anchor" href="#enter-voucher-number">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_VOUCHER_DATA">TextEntry.ACTION_ENTER_VOUCHER_DATA</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;1-15&rdquo;. It means min length is 1, max length is 15.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_VOUCHER_NUMBER">EntryRequest.PARAM_VOUCHER_NUMBER</a><br>
+Amount<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_VOUCHER_DATA">TextEntry.ACTION_ENTER_VOUCHER_DATA</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_VOUCHER_DATA&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_VOUCHER_DATA);
+bundle.putString(EntryRequest.PARAM_AMOUNT,value); //Voucher Number entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-invoice-number">
+  Enter Invoice Number
+  <a class="anchor" href="#enter-invoice-number">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_INVOICE_NUMBER">TextEntry.ACTION_ENTER_INVOICE_NUMBER</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;1-20&rdquo;. It means min length is 1, max length is 20.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_EINPUT_TYPE">EntryExtraData.PARAM_EINPUT_TYPE</a><br>
+Input Type<br>
+Default value is empty string.<br>
+If the value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.InputType.">InputType.ALLTEXT</a>, it means accept alpha-numeric string.<br>
+Else, accept numeric string.<br>
+Type: String<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_INVOICE_NUMBER">EntryRequest.PARAM_INVOICE_NUMBER</a><br>
+Amount<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_INVOICE_NUMBER">TextEntry.ACTION_ENTER_INVOICE_NUMBER</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_INVOICE_NUMBER&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_INVOICE_NUMBER);
+bundle.putString(EntryRequest.PARAM_INVOICE_NUMBER,value); //Invoice Number entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-clerk-id">
+  Enter Clerk ID
+  <a class="anchor" href="#enter-clerk-id">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_CLERK_ID">TextEntry.ACTION_ENTER_CLERK_ID</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-4&rdquo;. It means min length is 0, max length is 4.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_EINPUT_TYPE">EntryExtraData.PARAM_EINPUT_TYPE</a><br>
+Input Type<br>
+Default value is empty string.<br>
+If the value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.InputType.">InputType.ALLTEXT</a>, it means accept alpha-numeric string.<br>
+Else, accept numeric string.<br>
+Type: String<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_CLERK_ID">EntryRequest.PARAM_CLERK_ID</a><br>
+Amount<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_CLERK_ID">TextEntry.ACTION_ENTER_CLERK_ID</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_CLERK_ID&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_CLERK_ID);
+bundle.putString(EntryRequest.PARAM_CLERK_ID,value); //Clerk ID entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-server-id-for-restaurant-only">
+  Enter Server ID (For Restaurant only)
+  <a class="anchor" href="#enter-server-id-for-restaurant-only">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_SERVER_ID">TextEntry.ACTION_ENTER_SERVER_ID</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-4&rdquo;. It means min length is 0, max length is 4.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_EINPUT_TYPE">EntryExtraData.PARAM_EINPUT_TYPE</a><br>
+Input Type<br>
+Default value is empty string.<br>
+If the value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.InputType.">InputType.ALLTEXT</a>, it means accept alpha-numeric string.<br>
+Else, accept numeric string.<br>
+Type: String<br>
+<em>Optional</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_SERVER_ID">EntryRequest.PARAM_SERVER_ID</a><br>
+Amount<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_SERVER_ID">TextEntry.ACTION_ENTER_SERVER_ID</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_SERVER_ID&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_SERVER_ID);
+bundle.putString(EntryRequest.PARAM_SERVER_ID, value); //Server ID entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-table-number-for-restaurant-only">
+  Enter Table Number (For Restaurant Only)
+  <a class="anchor" href="#enter-table-number-for-restaurant-only">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TABLE_NUMBER">TextEntry.ACTION_ENTER_TABLE_NUMBER</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-4&rdquo;. It means min length is 0, max length is 4.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_TABLE_NUMBER">EntryRequest.PARAM_TABLE_NUMBER</a><br>
+Amount<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_TABLE_NUMBER">TextEntry.ACTION_ENTER_TABLE_NUMBER</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_TABLE_NUMBER&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_TABLE_NUMBER);
+bundle.putString(EntryRequest.PARAM_TABLE_NUMBER,value); //Table number entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre><hr>
+<h2 id="enter-guest-number-for-restaurant-only">
+  Enter Guest Number (For Restaurant Only)
+  <a class="anchor" href="#enter-guest-number-for-restaurant-only">#</a>
+</h2>
+<p><strong>Action</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_GUEST_NUMBER">TextEntry.ACTION_ENTER_GUEST_NUMBER</a></p>
+<p><strong>Category</strong><br>
+
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.CATEGORY">TextEntry.CATEGORY</a></p>
+<p><strong>Input Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_PACKAGE">EntryExtraData.PARAM_PACKAGE</a><br>
+The package name of BroadPOS app which started activity<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_TYPE">EntryExtraData.PARAM_TRANS_TYPE</a><br>
+Transaction type. Example: &ldquo;CREDIT SALE&rdquo;<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TRANS_MODE">EntryExtraData.PARAM_TRANS_MODE</a><br>
+The transaction mode BroadPOS is running in.<br>
+Default Value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a>.<br>
+Type: String<br>
+<em>Mandatory</em><br>
+The possible values are:</p>
+<ul>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.NORMAL">TransMode.NORMAL</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.DEMO">TransMode.DEMO</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST">TransMode.TEST</a></li>
+<li>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.enumeration.TransMode.TEST_AND_DEMO">TransMode.TEST_AND_DEMO</a></li>
+</ul>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_TIMEOUT">EntryExtraData.PARAM_TIMEOUT</a><br>
+Timeout (unit: ms).<br>
+Default value is 30000.<br>
+Type : Long<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryExtraData.PARAM_VALUE_PATTERN">EntryExtraData.PARAM_VALUE_PATTERN</a><br>
+Length limit for input value.<br>
+Default value is &ldquo;0-4&rdquo;. It means min length is 0, max length is 4.<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Ouput Extras</strong></p>
+<ul>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_GUEST_NUMBER">EntryRequest.PARAM_GUEST_NUMBER</a><br>
+Guest Number<br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+<li>
+<p>
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.PARAM_ACTION">EntryRequest.PARAM_ACTION</a><br>
+Action<br>
+The value is 
+  <a href="../../../javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.TextEntry.ACTION_ENTER_GUEST_NUMBER">TextEntry.ACTION_ENTER_GUEST_NUMBER</a><br>
+Type: String<br>
+<em>Mandatory</em></p>
+</li>
+</ul>
+<p><strong>Example Intent Filter</strong></p>
+<pre tabindex="0"><code>&lt;activity ...&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&#34;com.pax.us.pay.action.ENTER_GUEST_NUMBER&#34; /&gt;
+        &lt;category android:name=&#34;com.pax.us.pay.ui.category.TEXT&#34; /&gt;
+        &lt;category android:name=&#34;android.intent.category.DEFAULT&#34; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre><p><strong>Example Send Output to BroadPOS</strong></p>
+<pre tabindex="0"><code>Bundle bundle = new Bundle();
+bundle.putString(EntryRequest.PARAM_ACTION, TextEntry.ACTION_ENTER_GUEST_NUMBER);
+bundle.putString(EntryRequest.PARAM_GUEST_NUMBER,value); //Guest Number entered
+
+Intent intent = new Intent(EntryRequest.ACTION_NEXT);
+intent.putExtras(bundle);
+intent.setPackage(packageName); //Package name of BroadPOS app
+context.sendBroadcast(intent);
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+<footer>
+  <p>Copyright &copy; 2023 PAX Technology, Inc. All rights reserved.</p>
+</footer>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#common-text-intents">Common Text Intents</a>
+      <ul>
+        <li><a href="#enter-amount">Enter Amount</a></li>
+        <li><a href="#enter-tip">Enter Tip</a></li>
+        <li><a href="#enter-total-amount">Enter Total Amount</a></li>
+        <li><a href="#enter-cashback">Enter Cashback</a></li>
+        <li><a href="#enter-tax-amount">Enter Tax Amount</a></li>
+        <li><a href="#enter-trans-no">Enter Trans. No.</a></li>
+        <li><a href="#enter-expiry-date">Enter Expiry Date</a></li>
+        <li><a href="#enter-address">Enter Address</a></li>
+        <li><a href="#enter-zip-code">Enter Zip Code</a></li>
+        <li><a href="#enter-address-and-zip-code">Enter Address and Zip code</a></li>
+        <li><a href="#enter-auth-code">Enter Auth Code</a></li>
+        <li><a href="#enter-voucher-number">Enter Voucher Number</a></li>
+        <li><a href="#enter-invoice-number">Enter Invoice Number</a></li>
+        <li><a href="#enter-clerk-id">Enter Clerk ID</a></li>
+        <li><a href="#enter-server-id-for-restaurant-only">Enter Server ID (For Restaurant only)</a></li>
+        <li><a href="#enter-table-number-for-restaurant-only">Enter Table Number (For Restaurant Only)</a></li>
+        <li><a href="#enter-guest-number-for-restaurant-only">Enter Guest Number (For Restaurant Only)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

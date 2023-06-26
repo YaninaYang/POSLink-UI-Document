@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on POSLink UI Design and User Guide</title>
+    <link>/</link>
+    <description>Recent content in Introduction on POSLink UI Design and User Guide</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Interface Initiation</title>
+      <link>/ui-flow/interface-initiation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/interface-initiation/</guid>
+      <description>Invoking the UI App will always be done by a BroadPOS App. BroadPOS will not accept any input from the UI App before this initiation. So, the UI App will not need to be running to be activated.
+Initiation is always done by Activity Intents. And every interface needed to continue the flow of a transaction has a unique identifier (Intent Action).
+BroadPOS does not expect the UI App to implement all the interfaces it may need to complete a transaction.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/security/</guid>
+      <description>Security # This page describes all implict intents that BroadPOS app can use to perform actions to select option.
+Enter Card Number # Action
+SecurityEntry.ACTION_INPUT_ACCOUNT
+Category
+SecurityEntry.CATEGORY
+Enter Card Number (For POSLink Manage/InputAccount) # Action
+SecurityEntry.ACTION_MANAGE_INPUT_ACCOUNT
+Category
+SecurityEntry.CATEGORY
+Enter CVV # Action
+SecurityEntry.ACTION_ENTER_VCODE
+Category
+SecurityEntry.CATEGORY
+Enter Last 4 Digits # Action
+SecurityEntry.ACTION_ENTER_CARD_LAST_4_DIGITS
+Category
+SecurityEntry.CATEGORY
+Enter All Digits # Action
+SecurityEntry.ACTION_ENTER_CARD_ALL_DIGITS
+Category
+SecurityEntry.CATEGORY
+Enter Password # Action
+SecurityEntry.ACTION_ENTER_ADMINISTRATION_PASSWORD
+Category
+SecurityEntry.CATEGORY</description>
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      <link>/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/overview/</guid>
+      <description>Overview # POSLink UI is a solution for interaction between BroadPOS app and a third-party app using Android Intent. It allows the third-party app to customize the user interface for specific steps in the payment process, providing a better user experience and increasing user satisfaction. Then BroadPOS applications can offload the user interfaces used by end users of POS terminals to third-party UI Applications.
+This chapter introduces the process of the BroadPOS application and third-party application working together to complete a transaction using POSLink UI, and describes the interaction methods between the two applications in this solution.</description>
+    </item>
+    
+    <item>
+      <title>Request Broadcast</title>
+      <link>/ui-flow/request-broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/request-broadcast/</guid>
+      <description>The goal of an interface is to submit the desired data to BroadPOS, so that BroadPOS can continue the transaction. An important note here is that all communication during the life of an interface between an UI App and the BroadPOS App after the BroadPOS App has started the UI App Activity is done via system-wide Broadcasts. Request Broadcasts are the only upstream transmission from the UI App. In all other times, the UI App is reactive.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/option/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/option/</guid>
+      <description>Option # Select Debit Account Type # Action
+OptionEntry.ACTION_SELECT_ACCOUNT_TYPE
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long</description>
+    </item>
+    
+    <item>
+      <title>Response Broadcasts</title>
+      <link>/ui-flow/response-broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/response-broadcast/</guid>
+      <description>The BroadPOS App responds to the Request Broadcasts used to submit output of an interface, identified by the action EntryRequest.ACTION_NEXT. As we know, there are two more Request Broadcasts: suffixed with ABORT, and SECURITY_AREA. These do not generate any responses. In response to EntryRequest.ACTION_NEXT, there can be two types of Response Broadcasts:
+EntryResponse.ACTION_ACCEPTED # This broadcast does not contain any extra data bundled with it. This is the conclusion of an interface identified by a unique Interface Initiation Action name.</description>
+    </item>
+    
+    <item>
+      <title>Status Broadcasts</title>
+      <link>/ui-flow/status-broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/status-broadcast/</guid>
+      <description>We have previously discussed that the UI App gets the information necessary to create the interface, bundled with the intent it was invoked with. They are called the Interface Initiation Input Extras. However, for some interfaces, it may be necessary to get more information during the runtime of an interface. The UI App can take advantage of these information by visualizing interactive updates.
+Broadcast Receivers can be registered dynamically based on the current interface to receive the Status Broadcasts.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/poslink/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/poslink/</guid>
+      <description>POSLink Manage UI Intents # This page describes all implict intents that BroadPOS app can use to perform Manage UI request from POSLink.
+# Action
+OptionEntry.$1
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+    <item>
+      <title>Ending Transaction</title>
+      <link>/ui-flow/end-transaction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ui-flow/end-transaction/</guid>
+      <description>BroadPOS sends a broadcast with action InformationStatus.TRANS_COMPLETED to notify the end of a transaction. This special Status Broadcast is the Disconnect Message. The UI App is expected to close itself after letting the user see the update for a reasonable duration. This duration can optionally come bundled with the broadcast too, in which case, the UI App is expected to follow that duration. No Request Broadcasts will be received by the BroadPOS App after this broadcast has been sent.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/confirmation/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/confirmation/common/</guid>
+      <description>Common Confirmation Intents # This page describes all implict common intents that BroadPOS app can use to perform actions to confirm action.
+Start UI # BroadPOS might show status like CardStatus.CARD_REMOVAL_REQUIRED before start any Activity Action.
+In such case, it&amp;rsquo;s hard to choose default ui or customized ui to show status. So we add this action.
+In insert any time case, if customized app implements this action, BroadPOS will call customized app to foreground.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/confirmation/host-dependent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/confirmation/host-dependent/</guid>
+      <description>Host Dependent Confirmation Intents # This page describes all host-dependent implict intents that BroadPOS app can use to perform actions to confirm action.
+Card Will Be Deactivated, Are You Sure?? # Action
+ConfirmationEntry.ACTION_CHECK_DEACTIVATE_WARN
+Category
+ConfirmationEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/common/</guid>
+      <description>Common Option Intents # Select EMV AID # Action
+OptionEntry.ACTION_SELECT_AID
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/deprecated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/deprecated/</guid>
+      <description>Deprecated Option Intents # Select Cashback # Action
+OptionEntry.ACTION_SELECT_CASHBACK_AMOUNT
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/option/host-dependent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/option/host-dependent/</guid>
+      <description>Host Dependent Option Intents # Select Debit Account Type # Action
+OptionEntry.ACTION_SELECT_ACCOUNT_TYPE
+Category
+OptionEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/signature/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/signature/</guid>
+      <description>Signature # This page describes all implict intents that BroadPOS app can use to perform actions to do signature.
+Get Signature # Action
+SignatureEntry.ACTION_SIGNATURE
+Category
+SignatureEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/text/common/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/text/common/</guid>
+      <description>Common Text Intents # This page describes all common implict intents that BroadPOS app can use to perform actions to enter text.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/activity/text/host-dependent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/activity/text/host-dependent/</guid>
+      <description>Host Dependent Text Intents # This page describes all implict intents that BroadPOS app can use to perform actions to enter text.
+Enter Reference Number # Action
+TextEntry.ACTION_ENTER_ADDRESS
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/broadcast/entry-repsone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/broadcast/entry-repsone/</guid>
+      <description>Option # This page describes all implict intents that BroadPOS app can use to perform actions to select option.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/broadcast/entry-request/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/broadcast/entry-request/</guid>
+      <description>Option # This page describes all implict intents that BroadPOS app can use to perform actions to select option.
+Enter Amount # Action
+TextEntry.ACTION_ENTER_AMOUNT
+Category
+TextEntry.CATEGORY
+Input Extras
+EntryExtraData.PARAM_PACKAGE
+The package name of BroadPOS app which started activity
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/reference/broadcast/status/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/reference/broadcast/status/</guid>
+      <description>Status # This page describes all status broadcast intents.
+Batch Upload start # Action
+BatchStatus.BATCH_CLOSE_UPLOADING
+Category
+BatchStatus.CATEGORY
+Input Extras
+StatusData.PARAM_EDC_TYPE Edc Type
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_TYPE
+Transaction type. Example: &amp;ldquo;CREDIT SALE&amp;rdquo;
+Type: String
+Mandatory
+EntryExtraData.PARAM_TRANS_MODE
+The transaction mode BroadPOS is running in.
+Default Value is TransMode.NORMAL.
+Type: String
+Mandatory
+The possible values are:
+TransMode.NORMAL TransMode.DEMO TransMode.TEST TransMode.TEST_AND_DEMO EntryExtraData.PARAM_TIMEOUT
+Timeout (unit: ms).
+Default value is 30000.
+Type : Long
+Mandatory</description>
+    </item>
+    
+  </channel>
+</rss>

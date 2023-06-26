@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Overview # POSLink UI is a solution for interaction between BroadPOS app and a third-party app using Android Intent. It allows the third-party app to customize the user interface for specific steps in the payment process, providing a better user experience and increasing user satisfaction. Then BroadPOS applications can offload the user interfaces used by end users of POS terminals to third-party UI Applications.
+This chapter introduces the process of the BroadPOS application and third-party application working together to complete a transaction using POSLink UI, and describes the interaction methods between the two applications in this solution.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Overview" />
+<meta property="og:description" content="Overview # POSLink UI is a solution for interaction between BroadPOS app and a third-party app using Android Intent. It allows the third-party app to customize the user interface for specific steps in the payment process, providing a better user experience and increasing user satisfaction. Then BroadPOS applications can offload the user interfaces used by end users of POS terminals to third-party UI Applications.
+This chapter introduces the process of the BroadPOS application and third-party application working together to complete a transaction using POSLink UI, and describes the interaction methods between the two applications in this solution." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/overview/" /><meta property="article:section" content="" />
+
+
+<title>Overview | POSLink UI Design and User Guide</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" >
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.78166b9d46e23e0ea915cb6887a30b633e7bc4fad10c8b6b9f6fa532271c19ba.js" ></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" ></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>POSLink UI Design and User Guide</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/overview/" class="active">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/" class="">UI Flow</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/interface-initiation/" class="">Interface Initiation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/request-broadcast/" class="">Request Broadcast</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/response-broadcast/" class="">Response Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/status-broadcast/" class="">Status Broadcasts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/ui-flow/end-transaction/" class="">Ending Transaction</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Reference</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/" class="">Activity</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/" class="">Text</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/text/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/security/" class="">Security</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/" class="">Option</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/option/" class="">Option</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/deprecated/" class="">Deprecated</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/option/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/" class="">Confirmation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/common/" class="">Common</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/confirmation/host-dependent/" class="">Host Dependent</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/poslink/" class="">Poslink</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/activity/signature/" class="">Signature</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/" class="">Broadcast</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-repsone/" class="">Entry Repsone</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/entry-request/" class="">Entry Request</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/reference/broadcast/status/" class="">Status</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLink-UI"  target="_blank" rel="noopener">
+        POSLinkUI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/PAXTechnologyInc/POSLinkUI-Demo"  target="_blank" rel="noopener">
+        POSLinkUI Demo
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<header>
+  <img src="/svg/logo.svg" alt="My Logo">
+</header>
+
+<div class="flex align-center justify-between">
+
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Overview</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#transaction-process">Transaction Process</a></li>
+        <li><a href="#interaction-method">Interaction Method</a>
+          <ul>
+            <li><a href="#starting-customized-interface">Starting Customized Interface</a></li>
+            <li><a href="#passing-data-and-information">Passing Data and Information</a></li>
+            <li><a href="#complete-transaction">Complete Transaction</a></li>
+          </ul>
+        </li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h1>
+<p>POSLink UI is a solution for interaction between BroadPOS app and a third-party app using Android Intent. It allows the third-party app to customize the user interface for specific steps in the payment process, providing a better user experience and increasing user satisfaction. Then BroadPOS applications can offload the user interfaces used by end users of POS terminals to third-party UI Applications.</p>
+<p>This chapter introduces the process of the BroadPOS application and third-party application working together to complete a transaction using POSLink UI, and describes the interaction methods between the two applications in this solution.</p>
+<h2 id="transaction-process">
+  Transaction Process
+  <a class="anchor" href="#transaction-process">#</a>
+</h2>
+<p>A POS Transaction may need to ask for data from a cardholder (End User) dynamically based on numerous variables, including but not limited to transaction type, card type, merchant, payment network, etc. Due to this dynamic behavior, one transaction has been broken up into lots of interfaces where each interface asks for one or more pieces of information.</p>
+<blockquote class="book-hint info">
+  <strong>Interface</strong><br>
+It is a User Interface, not to be confused with term used in the Object-Oriented Programming paradigm. A Transaction of “Credit Sale” may consist of many interfaces such as “Enter Amount”, “Enter Tip”, “Input Account Number”, and so on. Here, the “Enter Amount” is responsible for collecting a single numerical value from the end user, and then submitting it to the BroadPOS App.
+</blockquote>
+
+<p>So for a BroadPOS app using POSLink UI, the transaction process is:</p>
+
+
+<script src="/mermaid.min.js"></script>
+
+  <script>mermaid.initialize({
+  "flowchart": {
+    "useMaxWidth":true
+  },
+  "theme": "default"
+}
+)</script>
+
+
+
+
+<p class="mermaid">
+sequenceDiagram
+    participant B as BroadPOS
+    participant U as UI App
+    
+    rect rgb(255, 229, 229)
+    loop 
+    note over B,U: Step 3-6: Display Customized Interface
+    B->>+U: startActivity
+    U-->>B: sendBroadcast(ABORT/TIMEOUT/NEXT)
+    B-->>U: sendBroadcast(ACCEPTED/DECLINED)
+    end
+    end
+    note over B,U: Step 8: Notify Transaction is Completed
+    B-->>U: sendBroadcast(TRANS_COMPLETED)
+    
+</p>
+
+<ol>
+<li>Start BroadPOS application to initiate the transaction.</li>
+<li>BroadPOS application displays different user interface screens according to the different transaction steps.</li>
+<li>If BroadPOS app detects that a third-party application has customized the interface for the current transaction step, it calls the third-party application&rsquo;s interface to display it.</li>
+<li>The third-party application displays the customized interface, and the user performs the necessary operations and provides the required data.</li>
+<li>The third-party application returns the necessary data to the payment application.</li>
+<li>BroadPOS app verifies the validity of the data.
+<ul>
+<li>If the data is invalid, the result is fed back to the third-party application to prompt the user to correct the data.</li>
+<li>If the data is valid, it proceeds to the next step.</li>
+</ul>
+</li>
+<li>Repeat steps 3-6 until the transaction is completed.</li>
+<li>When the transaction is completed, BroadPOS app notifies the third-party application of the end of the transaction to display a transaction completion screen, indicating to the user that the transaction has been completed.</li>
+</ol>
+<blockquote class="book-hint info">
+  <strong>Note</strong><br>
+The UI App cannot change the default interfaces of Settings and Home Page of BroadPOS app.
+</blockquote>
+
+<h2 id="interaction-method">
+  Interaction Method
+  <a class="anchor" href="#interaction-method">#</a>
+</h2>
+<p>When BroadPOS app and the third-party UI app need to interact with each other, 
+  <a href="https://developer.android.com/reference/android/content/Intent">Android Intent</a> is used. An Intent is a messaging object used to pass information between different components such as Activity, Service, BroadcastReceiver, etc. It allows BroadPOS to start an activity in another app by describing a implicit simple action you&rsquo;d like to perform (such as &ldquo;enter amount&rdquo; or &ldquo;enter tip&rdquo;) and some data in an Intent object.</p>
+<h3 id="starting-customized-interface">
+  Starting Customized Interface
+  <a class="anchor" href="#starting-customized-interface">#</a>
+</h3>
+<p>BroadPOS app displays different user interfaces for different steps in the payment process. If it detects that a third-party app has customized the user interface for a particular step, BroadPOS app launches the third-party app&rsquo;s interface using an 
+  <a href="https://developer.android.com/reference/android/content/Intent">Android Intent</a>.</p>
+<blockquote class="book-hint info">
+  <strong>Note</strong><br>
+Each of such interfaces is treated individually and independently.<br>
+A BroadPOS App initiates each interface, and a UI App is expected to submit what should be the output of that interface. The UI App will not know what the upcoming interfaces may be, as that will be decided by the BroadPOS App dynamically.
+</blockquote>
+
+<p><strong>From the perspective of BroadPOS app</strong><br>
+To lauch the third-party app&rsquo;s Activity to enter amount, you can use following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Bundle bundle <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bundle<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_PACKAGE</span><span style="color:#f92672">,</span> broadposPackage<span style="color:#f92672">);</span> <span style="color:#75715e">//Package name of BroadPOS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_TRANS_TYPE</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;CREDIT SALE&#34;</span><span style="color:#f92672">);</span> 
+</span></span><span style="display:flex;"><span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_TRANS_MODE</span><span style="color:#f92672">,</span> TransMode<span style="color:#f92672">.</span><span style="color:#a6e22e">NORMAL</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putLong</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_TIMEOUT</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30000</span><span style="color:#f92672">);</span> <span style="color:#75715e">//timeoutMs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_CURRENCY</span><span style="color:#f92672">,</span> CurrencyType<span style="color:#f92672">.</span><span style="color:#a6e22e">USD</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_VALUE_PATTERN</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;0-12&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Intent intent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Intent<span style="color:#f92672">(</span>TextEntry<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_ENTER_AMOUNT</span><span style="color:#f92672">);</span><span style="color:#75715e">//Activity Action
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">addCategory</span><span style="color:#f92672">(</span>TextEntry<span style="color:#f92672">.</span><span style="color:#a6e22e">CATEGORY</span><span style="color:#f92672">);</span><span style="color:#75715e">//Activity Category
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">setPackage</span><span style="color:#f92672">(</span>uiPackageName<span style="color:#f92672">);</span> <span style="color:#75715e">//Package name of third-party apps
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">putExtras</span><span style="color:#f92672">(</span>bundle<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlags</span><span style="color:#f92672">(</span>Intent<span style="color:#f92672">.</span><span style="color:#a6e22e">FLAG_ACTIVITY_NO_ANIMATION</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>context<span style="color:#f92672">.</span><span style="color:#a6e22e">startActivity</span><span style="color:#f92672">(</span>intent<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p><strong>From the perspective of third-party UI app</strong><br>
+To advertise which implicit intents your app can receive, you need declare one or more intent filters for each of your app components with an <intent-filter> element in your AndroidManifest.xml file. Each intent filter specifies the type of intents it accepts based on the intent&rsquo;s action, and category.</p>
+<p>For example, your app has customized UI for entering amount:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;activity</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#a6e22e">android:exported=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;intent-filter&gt;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&lt;action</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;com.pax.us.pay.action.ENTER_AMOUNT&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&lt;category</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;com.pax.us.pay.ui.category.TEXT&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">&lt;category</span> <span style="color:#a6e22e">android:name=</span><span style="color:#e6db74">&#34;android.intent.category.DEFAULT&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&lt;/intent-filter&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/activity&gt;</span>
+</span></span></code></pre></div><p>In this code, &ldquo;com.pax.us.pay.action.ENTER_AMOUNT&rdquo; is a custom Intent Action which defined in POSLink UI, its category is &ldquo;com.pax.us.pay.ui.category.TEXT&rdquo;.</p>
+<blockquote class="book-hint info">
+  <strong>Note</strong><br>
+To allow BroadPOS app start your activity, you must set the <strong>exported</strong> attribute to &ldquo;true&rdquo; for that activity.
+</blockquote>
+
+<p>In POSLink UI, such interfaces which need start an activity are called as <strong>Entry</strong>.
+As you see, there are some extra data in the Intent object which BroadPOS start activity. In this document, we call these extra data as <strong>Input Extras</strong>. You can use these data to initialize your view for a better user experience.<br>
+For the case above, you can read extras data in your acitivity:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Intent intent <span style="color:#f92672">=</span> getIntent<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>String action <span style="color:#f92672">=</span> intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getAction</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>Bundle bundle <span style="color:#f92672">=</span> intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getExtras</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>String senderPackage <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_PACKAGE</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">//Package name of BroadPOS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>String transType <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_TRANS_TYPE</span><span style="color:#f92672">);</span> 
+</span></span><span style="display:flex;"><span>String transMode <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_TRANS_MODE</span><span style="color:#f92672">,</span> TransMode<span style="color:#f92672">.</span><span style="color:#a6e22e">NORMAL</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>String timeoutMs <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getLong</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_TIMEOUT</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30000</span><span style="color:#f92672">);</span> <span style="color:#75715e">//timeoutMs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>String currecy <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_CURRENCY</span><span style="color:#f92672">,</span> CurrencyType<span style="color:#f92672">.</span><span style="color:#a6e22e">USD</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>String lengthLimit <span style="color:#f92672">=</span> bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">getString</span><span style="color:#f92672">(</span>EntryExtraData<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_VALUE_PATTERN</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;0-12&#34;</span><span style="color:#f92672">);</span>
+</span></span></code></pre></div><h3 id="passing-data-and-information">
+  Passing Data and Information
+  <a class="anchor" href="#passing-data-and-information">#</a>
+</h3>
+<p>In the third-party app&rsquo;s customized interface, data and information generated by user interactions with the interface need to be passed back to the BroadPOS app. This can be achieved using 
+  <a href="https://developer.android.com/guide/components/broadcasts">Broadcast</a>.</p>
+<p>After BroadPOS calls <strong>startActivity</strong>, it will register broadcast receiver to receive response from third-party UI app.</p>
+<h4 id="ui-app-submit-response-to-broadpos">
+  <strong>UI App Submit Response to BroadPOS</strong>
+  <a class="anchor" href="#ui-app-submit-response-to-broadpos">#</a>
+</h4>
+<p>POSLink UI defines 3 typical Broadcast actions to sumbit response to BroadPOS app.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.ACTION_ABORT">EntryRequest.ACTION_ABORT</a></td>
+<td>Transaction Timeout</td>
+</tr>
+<tr>
+<td>
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.ACTION_TIMEOUT">EntryRequest.ACTION_TIMEOUT</a></td>
+<td>Transaction Aborted</td>
+</tr>
+<tr>
+<td>
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryRequest.ACTION_NEXT">EntryRequest.ACTION_NEXT</a></td>
+<td>To submit output</td>
+</tr>
+</tbody>
+</table>
+<p>For example, while entering amount, if user try to abort the transaction, UI app can send broadcast to BroadPOS:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Bundle bundle <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bundle<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_ACTION</span><span style="color:#f92672">,</span> TextEntry<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_ENTER_AMOUNT</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Intent intent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Intent<span style="color:#f92672">(</span>EntryRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_ABORT</span><span style="color:#f92672">);</span> <span style="color:#75715e">//Use EntryRequest.ACTION_TIMEOUT if timeout
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">putExtras</span><span style="color:#f92672">(</span>bundle<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">setPackage</span><span style="color:#f92672">(</span>packageName<span style="color:#f92672">);</span> <span style="color:#75715e">//Package name of BroadPOS app which started activity
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>context<span style="color:#f92672">.</span><span style="color:#a6e22e">sendBroadcast</span><span style="color:#f92672">(</span>intent<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>Or after amount is entered, the UI app can submit the <strong>amount</strong> data to BroadPOS using following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Bundle bundle <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bundle<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//bundling the interface identifier to let BroadPOS know which interface it is from.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putString</span><span style="color:#f92672">(</span>EntryRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_ACTION</span><span style="color:#f92672">,</span> TextEntry<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_ENTER_AMOUNT</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>bundle<span style="color:#f92672">.</span><span style="color:#a6e22e">putLong</span><span style="color:#f92672">(</span>EntryRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_AMOUNT</span><span style="color:#f92672">,</span> amount<span style="color:#f92672">);</span> <span style="color:#75715e">//AMOUNT entered
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>Intent intent <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Intent<span style="color:#f92672">(</span>EntryRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_NEXT</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">putExtras</span><span style="color:#f92672">(</span>bundle<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">setPackage</span><span style="color:#f92672">(</span>packageName<span style="color:#f92672">);</span> <span style="color:#75715e">//Package name of BroadPOS app which started activity
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>context<span style="color:#f92672">.</span><span style="color:#a6e22e">sendBroadcast</span><span style="color:#f92672">(</span>intent<span style="color:#f92672">);</span>
+</span></span></code></pre></div><p>As you see, when you send broadcast to BroadPOS, you must put some extra data. In this document, we call such data as <strong>Output Extras</strong>.</p>
+<blockquote class="book-hint info">
+  <strong>Note</strong><br>
+In order to validate the legitimacy of the response, <strong>EntryRequest.PARAM_ACTION</strong> is mandatory for all <strong>EntryRequest</strong> actions. If you send an Broadcast without EntryRequest.PARAM_ACTION, BroadPOS will ignore and not process it.
+</blockquote>
+
+<h4 id="broadpos-submit-response-to-ui-app">
+  <strong>BroadPOS Submit Response to UI App</strong>
+  <a class="anchor" href="#broadpos-submit-response-to-ui-app">#</a>
+</h4>
+<p>After BroadPOS receives Broadcast <strong>EntryRequest.ACTION_NEXT</strong>, it will verify the validity of the data bundled in Intent, and send validation result to UI app using Broadcast.<br>
+POSLink UI defines 2 Broadcast actions to sumbit validation result to UI app.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryResponse.ACTION_ACCEPTED">EntryResponse.ACTION_ACCEPTED</a></td>
+<td>Accept the valid data. Will go to next step.</td>
+</tr>
+<tr>
+<td>
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryResponse.ACTION_DECLINED">EntryResponse.ACTION_DECLINED</a></td>
+<td>Data is invalid</td>
+</tr>
+</tbody>
+</table>
+<p>So UI app should register a Broadcast Receiver to receive <strong>EntryResponse</strong>. And for action <strong>EntryResponse.ACTION_DECLINED</strong>, UI app can get validation information from the bundle extra data 
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryResponse.PARAM_CODE">EntryResponse.PARAM_CODE</a> and 
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.entry.EntryResponse.PARAM_CODE">EntryResponse.PARAM_CODE</a>.<br>
+Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">POSLinkUIReceiver</span> <span style="color:#66d9ef">extends</span> BroadcastReceiver <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onReceive</span><span style="color:#f92672">(</span>Context context<span style="color:#f92672">,</span> Intent intent<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String entryAction <span style="color:#f92672">=</span> intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getStringExtra</span><span style="color:#f92672">(</span>EntryResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_ACTION</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>EntryResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_ACCEPTED</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getAction</span><span style="color:#f92672">())){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//EntryRequest.ACTION_NEXT is accepted
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>EntryResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_DECLINED</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getAction</span><span style="color:#f92672">())){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//EntryRequest.ACTION_NEXT is declined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">long</span> resultCode <span style="color:#f92672">=</span> intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getLongExtra</span><span style="color:#f92672">(</span>EntryResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_CODE</span><span style="color:#f92672">,</span><span style="color:#ae81ff">0</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            String message <span style="color:#f92672">=</span> intent<span style="color:#f92672">.</span><span style="color:#a6e22e">getStringExtra</span><span style="color:#f92672">(</span>EntryResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_MSG</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            Logger<span style="color:#f92672">.</span><span style="color:#a6e22e">i</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;receive Entry Response ACTION_DECLINED for action \&#34;&#34;</span> <span style="color:#f92672">+</span> entryAction <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\&#34; (&#34;</span> <span style="color:#f92672">+</span> errCode <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">+</span> errMessage <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;)&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//If you are using Fragment, you can call requireActivity() to get context
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">makeText</span><span style="color:#f92672">(</span>requireActivity<span style="color:#f92672">(),</span> errMessage<span style="color:#f92672">,</span> Toast<span style="color:#f92672">.</span><span style="color:#a6e22e">LENGTH_SHORT</span><span style="color:#f92672">).</span><span style="color:#a6e22e">show</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><blockquote class="book-hint info">
+  <strong>Note</strong><br>
+Similar as EntryRequest.PARAM_ACTION, <strong>EntryResponse.PARAM_ACTION</strong> is mandatory for all <strong>EntryResponse</strong> actions.
+</blockquote>
+
+<h3 id="complete-transaction">
+  Complete Transaction
+  <a class="anchor" href="#complete-transaction">#</a>
+</h3>
+<p>When the transaction is completed, BroadPOS app sends a broadcast to the third-party UI application to display a transaction completion screen. The broadcast action is definded as 
+  <a href="../reference/javadoc/constant-values.html#com.pax.us.pay.ui.constant.status.InformationStatus.TRANS_COMPLETED">InformationStatus.TRANS_COMPLETED</a>.</p>
+<p>We will discuss more details on 
+  <a href="/reference/broadcast/">Broadcast</a>;</p>
+<h2 id="summary">
+  Summary
+  <a class="anchor" href="#summary">#</a>
+</h2>
+<p>In this chapter, we have introduced the interaction process between BroadPOS and UI application, which has given you a basic understanding of the entire solution&rsquo;s principles. BroadPOS starts an activity of the third party UI app to display customized user interface and they passes data and information to each other using broadcast. In the following chapters, we will continue to discuss the details of implementing every user interface.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+<footer>
+  <p>Copyright &copy; 2023 PAX Technology, Inc. All rights reserved.</p>
+</footer>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#transaction-process">Transaction Process</a></li>
+        <li><a href="#interaction-method">Interaction Method</a>
+          <ul>
+            <li><a href="#starting-customized-interface">Starting Customized Interface</a></li>
+            <li><a href="#passing-data-and-information">Passing Data and Information</a></li>
+            <li><a href="#complete-transaction">Complete Transaction</a></li>
+          </ul>
+        </li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
